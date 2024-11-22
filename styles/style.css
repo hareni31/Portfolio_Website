@@ -1,0 +1,298 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Crimson Text', Times, Times New Roman, serif;
+    box-sizing: border-box;
+    justify-content: center;
+    color: aliceblue;
+}
+  
+body {
+    background-color: #285446;
+    /* Dark greenish background color for the body */
+    background-image: url("images/bg1.jpg"); /* Use relative path */
+    background-repeat: no-repeat;
+    background-size: cover; /* Ensures the background covers the entire body */
+    background-position: center center; /* Centers the background image */
+    height: 100vh; /* Ensures the body takes up full viewport height */
+    width: 100%; /* Ensures the body takes up full width */
+}
+
+/* Header container */
+.head-con {
+    width: 90%;
+    height: 90px;
+    background-color: white;
+    display: flex;
+    margin-top: 20px;
+    margin-left: 40px ;
+    color: antiquewhite;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; /* Adds spacing on left and right */
+    border-radius: 20px; /* Rounded corners for the header */
+    box-shadow: 0 4px 10px; /* Optional: Add a shadow for better appearance */
+}
+
+/* Header text */
+p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black; 
+}
+
+/* Navigation styles */
+.nav-lists ul {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-lists li {
+    padding: 10px 20px;
+    border-radius: 10px; /* Rounded corners for the nav items */
+    background-color: transparent;
+    position: relative;
+    border: 2px solid transparent; /* Transparent border to maintain space */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Make sure the list items stay aligned */
+.nav-lists a {
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    color: black;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adds space between icon and text */
+}
+
+/* Specifically target icons inside the links */
+.nav-lists a i {
+    color: black; /* Ensures that the icons are black */
+}
+
+/* On hover, make the icon white */
+.nav-lists a:hover {
+    color: #fff; /* White text on hover */
+}
+
+.nav-lists a:hover i {
+    color: #fff; /* White icon on hover */
+}
+
+/* Hover effect: gradient background and lifting effect */
+.nav-lists li:hover {
+    border: 2px solid #007BFF; /* Square border on hover */
+    transform: translateY(-5px); /* Lift the item up */
+    background: linear-gradient(45deg, #ff6ec7, #ff9a8b); /* Gradient background on hover */
+}
+
+.nav-lists a:hover {
+    color: #fff; /* White text on hover */
+}
+
+/* Mobile menu button (hamburger icon) */
+.menu-btn {
+  display: none;
+  font-size: 30px;
+  background: transparent;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  z-index: 10; /* Ensure the hamburger is on top */
+}
+
+
+
+/* Wrapper */
+.main-con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  gap: 20px;
+}
+
+/* Left Box - Image */
+.box1 {
+  width: 40%;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+  padding-bottom: 10px;
+}
+
+.box1:hover {
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Right Box - Content */
+.box2 {
+  width: 50%;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+
+.name {
+  font-size: 36px;
+  font-weight: bold;
+  color: whitesmoke;
+}
+
+.role {
+  font-size: 24px;
+  color: whitesmoke;
+  margin-bottom: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Typing Effect */
+.typedText {
+  display: inline-block;
+  color: whitesmoke;
+  animation: typing 4s steps(30, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  50% { border-color: transparent; }
+}
+
+.info p {
+  font-size: 25px !important;  /* Ensures 25px font size */
+  line-height: 1.5;
+  color: whitesmoke !important;  /* Forces the color to whitesmoke */
+  margin: 20px 0;
+}
+
+.btn {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.download-btn {
+  padding: 10px 20px;
+  border-radius: 30px; /* Rounded corners for the button */
+  background-color: green;
+  border: 2px solid transparent; /* Transparent border to maintain space */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333; /* Text color */
+}
+
+.download-btn:hover {
+  transform: translateY(-5px); 
+  background: linear-gradient(45deg, #ff6f61, #ff9966); /* Gradient background on hover */
+  color: #fff; /* Change text to white on hover */
+}
+
+
+/* Mobile responsive styles */
+@media screen and (max-width: 768px) {
+  /* Header container adjustments */
+  .head-con {
+      margin-left: 10px; /* Reduce margin on mobile */
+      margin-right: 10px; /* Add right margin */
+  }
+
+  /* Navigation lists */
+  .nav-lists {
+      display: none; /* Hide the nav list by default */
+      width: 100%;
+      position: absolute;
+      top: 90px; /* Below the header */
+      left: 0;
+      background-color: whitesmoke;
+      flex-direction: column;
+      border-radius: 10px;
+  }
+
+  .nav-lists.active {
+      display: flex; /* Show the menu when active */
+  }
+
+  .nav-lists ul {
+      flex-direction: column;
+      width: 100%;
+  }
+
+  .nav-lists li {
+      padding: 15px;
+      width: 100%;
+      text-align: center;
+      border-radius: 10px;
+  }
+
+  .menu-btn {
+      display: block; /* Display the hamburger menu */
+  }
+
+  /* Adjusting the body background for mobile */
+  body {
+      background-size: cover;
+      background-position: center center;
+  }
+
+  /* Adjust main-con layout */
+  .main-con {
+      flex-direction: column; /* Stack the left and right boxes */
+      padding: 20px; /* Add more padding */
+  }
+
+  /* Adjust left box  */
+  .box1 {
+    margin-top: 20px;
+      width: 100%; 
+      padding-bottom: 20px;
+  }
+
+  /* Adjust right box (content) */
+  .box2 {
+      width: 100%; /* Make the content box take full width */
+      margin-top: 20px;
+      padding: 10px;
+  }
+
+  /* Adjust buttons in mobile view */
+  .btn {
+      flex-direction: column; /* Stack buttons vertically */
+  }
+
+  .download-btn {
+      width: 100%; /* Make the button take full width */
+      text-align: center; /* Center text in the button */
+  }
+
+  .typedText {
+      font-size: 1.5rem; /* Reduce font size of typing effect */
+  }
+
+  .info p {
+      font-size: 20px !important; /* Adjust font size for smaller screens */
+  }
+
+  .name {
+      font-size: 30px; /* Reduce the name font size */
+  }
+
+  .role {
+      font-size: 20px; /* Reduce the role font size */
+  }
+}

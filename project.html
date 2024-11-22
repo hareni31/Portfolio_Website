@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects</title>
+    <link rel="stylesheet" href="styles/style2.css">
+    <script src="script.js"></script>
+    
+</head>
+<body>
+    <header>
+        <div class="head-con">
+          <p>Hareni Varadharaj</p>
+          <nav class="nav-lists" id="navMenu">
+            <ul>
+              <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+              <li><a href="about.html"><i class="fas fa-user"></i> About</a></li>
+              <li><a href="project.html"><i class="fas fa-project-diagram"></i> Projects</a></li>
+              <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+          </nav>
+          <button class="menu-btn" onclick="toggleMenu()">&#9776;</button>
+        </div>
+      </header>
+
+    <div class="head-proj">Projects</div>
+
+    <div class="proj-con">
+        <!-- Project 1: Expense Tracker -->
+        <div class="proj1">
+            <img src="styles/images/Exptr.png" alt="Expense Tracker Application">
+            <h3>Expense Tracker Application</h3>
+            <p><strong>Technologies Used:</strong>Spring Boot, Thymeleaf, MySQL, Spring Security</p>
+            <button class="explore-btn" onclick="showModal('expenseTracker')">Explore</button>
+        </div>
+
+        <!-- Project 2: Drag-and-Drop To-Do List -->
+        <div class="proj1">
+            <img src="styles/images/d&d.png" alt="Drag-and-Drop To-Do List Application">
+            <h3>Drag-and-Drop To-Do List Application</h3>
+            <p><strong>Technologies Used:</strong> HTML, CSS, JavaScript</p>
+            <button class="explore-btn" onclick="showModal('todoList')">Explore</button>
+        </div>
+
+        <!-- Project 3: Absent Message Notification System -->
+        <div class="proj1">
+            <img src="styles/images/abn.png" alt="Absent Message Notification System">
+            <h3>Absent Message Notification System</h3>
+            <p><strong>Technologies Used:</strong>HTML, CSS, JavaScript</p>
+            <button class="explore-btn" onclick="showModal('absentNotification')">Explore</button>
+        </div>
+
+        <!-- Project 4: Automatic Leave Form Generation -->
+        <div class="proj1">
+            <img src="styles/images/alg.png" alt="Automatic Leave Form Generation System">
+            <h3>Automatic Leave Form Generation System</h3>
+            <p><strong>Technologies Used:</strong>PHP, MySQL</p>
+            <button class="explore-btn" onclick="showModal('leaveFormGeneration')">Explore</button>
+        </div>
+    </div>
+
+   <!-- Modal for Project Details -->
+<div id="projectModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h2 id="modal-title"></h2>
+        <div id="modal-body">
+            <p id="project-description"></p> <!-- Project Description here -->
+            <p>Demo link: <a href="#" id="demo-link" target="_blank">Live Demo</a></p>
+            <p>Live video: <a href="#" id="video-link" target="_blank">Watch Video</a></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showModal(project) {
+        const modal = document.getElementById('projectModal');
+        const modalTitle = document.getElementById('modal-title');
+        const demoLink = document.getElementById('demo-link');
+        const videoLink = document.getElementById('video-link');
+        const projectDescription = document.getElementById('project-description');
+        
+        // Customize content for each project
+        if (project === 'expenseTracker') {
+            modalTitle.innerHTML = 'Expense Tracker Application';
+            demoLink.href = 'https://github.com/hareni31/expense-tracker';  // GitHub link
+            videoLink.href = 'https://drive.google.com/file/d/1zg_16fvMhi9j1_KeJiLZAB8p3RY5UHfU/view?usp=sharing';  // Optional video link
+            demoLink.innerText = "GitHub Repository";
+            projectDescription.innerHTML = 'This project is a web-based Expense Tracker application that helps users manage their expenses efficiently. It allows users to add expenses, categorize them, and view their total expenditure.';
+        } else if (project === 'todoList') {
+            modalTitle.innerHTML = 'Drag-and-Drop To-Do List Application';
+            demoLink.href = 'https://hareni31.github.io/drag-drop-to-do-list/';  // Demo link
+            videoLink.href = 'https://drive.google.com/file/d/1FFomlEtFixy7fwqp4puTa8cFCnFtpLVo/view?usp=sharing';  // Optional video link
+            demoLink.innerText = "Live Demo";
+            projectDescription.innerHTML = 'This To-Do List application allows users to organize tasks by dragging and dropping them into different categories. It is a simple yet effective task management tool.';
+        } else if (project === 'absentNotification') {
+            modalTitle.innerHTML = 'Absent Message Notification System';
+            demoLink.href = 'https://hareni31.github.io/absent-notification-fd/';  // Demo link
+            videoLink.href = 'https://drive.google.com/file/d/1zurAFjg7j-etluWGTz-RM3cyXBkZ6lBy/view?usp=sharing';  // Optional video link
+            demoLink.innerText = "Live Demo";
+            projectDescription.innerHTML = 'This project is a simple frontend application designed to notify parents of students who have been marked absent. It helps automate communication between the school and parents.';
+        } else if (project === 'leaveFormGeneration') {
+            modalTitle.innerHTML = 'Automatic Leave Form Generation System';
+            demoLink.href = 'https://github.com/hareni31/automatic-leave-form-generation';  // GitHub link
+            videoLink.href = 'https://drive.google.com/file/d/19fde3BZfrjO0lldTJ8mCHawz2yJklv-w/view?usp=sharing';  // Optional video link
+            demoLink.innerText = "GitHub Repository";
+            projectDescription.innerHTML = 'The Automatic Leave Form Generation System streamlines the process of notifying absent students and generating leave forms within an educational institution. Administrators or teachers can filter out absent students and send notifications for them to fill out leave forms.';
+        }
+
+        modal.style.display = "block";
+    }
+
+    // Function to close the modal
+    function closeModal() {
+        const modal = document.getElementById('projectModal');
+        modal.style.display = "none";
+    }
+
+    // Close modal when clicking outside the modal content
+    window.onclick = function(event) {
+        const modal = document.getElementById('projectModal');
+        if (event.target === modal) {
+            closeModal();
+        }
+    }
+
+    // Ensure functions are globally accessible
+    window.showModal = showModal;
+    window.closeModal = closeModal;
+</script>
+
+
+<script>
+function toggleMenu() {
+    const navMenu = document.getElementById("navMenu");
+    navMenu.classList.toggle("active");
+  }
+  function toggleMenu() {
+    const navMenu = document.getElementById("navMenu");
+    navMenu.classList.toggle("active");
+  }
+</script>
+
+</body>
+</html>

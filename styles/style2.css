@@ -1,0 +1,399 @@
+body {
+    background-color: #285446;
+    background-image: url("images/bg1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    font-family: 'Crimson Text', Times, Times New Roman, serif;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+  }
+  /* Header container */
+  .head-con {
+    width: 90%;
+    height: 90px;
+    background-color: white;
+    display: flex;
+    margin-top: 20px;
+    margin-left: 40px;
+    color: antiquewhite;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; /* Adds spacing on left and right */
+    border-radius: 20px; /* Rounded corners for the header */
+    box-shadow: 0 4px 10px; /* Optional: Add a shadow for better appearance */
+  }
+  
+  /* Header text */
+  p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+  }
+  
+  /* Navigation styles */
+  .nav-lists ul {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-lists li {
+    padding: 10px 20px;
+    border-radius: 10px; /* Rounded corners for the nav items */
+    background-color: transparent;
+    position: relative;
+    border: 2px solid transparent; /* Transparent border to maintain space */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+  }
+  
+  /* Make sure the list items stay aligned */
+  .nav-lists a {
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    color: black;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adds space between icon and text */
+  }
+  
+  /* Specifically target icons inside the links */
+  .nav-lists a i {
+    color: black; /* Ensures that the icons are black */
+  }
+  
+  /* On hover, make the icon white */
+  .nav-lists a:hover {
+    color: #fff; /* White text on hover */
+  }
+  
+  .nav-lists a:hover i {
+    color: #fff; /* White icon on hover */
+  }
+  
+  /* Hover effect: gradient background and lifting effect */
+  .nav-lists li:hover {
+    border: 2px solid #007BFF; /* Square border on hover */
+    transform: translateY(-5px); /* Lift the item up */
+    background: linear-gradient(45deg, #ff6ec7, #ff9a8b); /* Gradient background on hover */
+  }
+  
+  .nav-lists a:hover {
+    color: #fff; /* White text on hover */
+  }
+  /* Mobile menu button (hamburger icon) */
+  .menu-btn {
+    display: none;
+    font-size: 30px;
+    background: transparent;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    z-index: 10; /* Ensure the hamburger is on top */
+  }
+  
+  /* Mobile responsive styles */
+  @media screen and (max-width: 768px) {
+    /* Header container adjustments */
+    .head-con {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+  
+    /* Navigation lists */
+    .nav-lists {
+        display: none;
+        width: 100%;
+        position: absolute;
+        top: 90px;
+        background-color: whitesmoke;
+        flex-direction: column;
+        align-items: center;  /* This ensures content is centered horizontally */
+        border-radius: 10px;
+        z-index: 5; /* Ensure the navigation is on top */
+        left: 50%; /* Position from the left side of the screen */
+        transform: translateX(-50%); /* Center the menu horizontally */
+    }
+  
+    .nav-lists.active {
+        display: flex;
+    }
+  
+    .nav-lists ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 0; /* Remove default padding */
+        margin: 0; /* Remove default margin */
+        list-style-type: none; /* Remove bullet points */
+    }
+  
+    .nav-lists li {
+        padding: 15px;
+        width: 100%;
+        text-align: center;
+        border-radius: 10px;
+        background-color: #f4f4f4;
+        margin: 5px 0; /* Add margin between items */
+    }
+  
+    .nav-lists a {
+        display: block;
+        color: black;
+        text-decoration: none;
+    }
+  
+    .nav-lists a i {
+        font-size: 20px; /* Adjust icon size if needed */
+    }
+  
+    /* Ensure icons are visible when the nav links are hovered */
+    .nav-lists a:hover i {
+        color: #fff; /* Change color of icons when hovered */
+    }
+  
+    /* Hamburger menu button */
+    .menu-btn {
+        display: block;
+    }
+  
+    /* Ensure background image scaling for mobile */
+    body {
+        background-size: cover;
+        background-position: center center;
+    }
+  
+    /* Prevent overlapping content */
+    .main-content {
+        z-index: 1; /* Ensure content is below the menu */
+    }
+  }
+  
+  .head-proj {
+      text-align: center;
+      margin-top: 30px;
+      padding: 20px;
+      font-size: 36px;
+      color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      text-transform: uppercase;
+      position: relative;
+      opacity: 0;
+      transform: translateY(-100%);
+      animation: slideDown 1s ease-out forwards;
+  }
+  
+  @keyframes slideDown {
+      from {
+          transform: translateY(-100%);
+          opacity: 0;
+      }
+      to {
+          transform: translateY(0);
+          opacity: 1;
+      }
+  }
+  
+  .proj-con {
+      margin: 40px;
+      padding: 20px;
+      display: flex;
+      justify-content: space-around; /* Use space-between to spread out projects */
+      flex-wrap: wrap; /* Allows wrapping on smaller screens */
+      gap: 20px; /* Space between projects */
+  }
+  
+  .proj1 {
+      width: calc(33.33% - 20px); /* Adjust width for responsive design */
+      height: 400px;
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      display: flex;
+      flex-direction: column; /* Stack content vertically */
+      padding: 10px; /* Add padding for inner spacing */
+      position: relative; /* Ensures positioning of child elements works correctly */
+  }
+  .explore-btn {
+      display: inline-block;  /* Ensures the button remains inline */
+      width: auto;  /* Ensure width adjusts to the content */
+      text-align: center;
+      background-color: #285446;
+      color: white;
+      border: none;
+      padding: 10px 20px; /* Horizontal padding adjusted for button */
+      cursor: pointer;
+      border-radius: 0 0 10px 10px;
+      transition: background-color 0.3s;
+      margin-top: 10px; /* Added margin to separate button */
+      white-space: nowrap; /* Prevents the text from wrapping */
+  }
+  .proj1 .explore-btn {
+      position: absolute; /* Allow the button to be absolutely positioned within the container */
+      bottom: 40px; /* Position at the bottom of the .proj1 container */
+      left: 50%; /* Center the button horizontally */
+      transform: translateX(-50%); /* Fine-tune centering */
+  }
+  .proj1 img {
+      width: 100%; /* Make image take up full width of the container */
+      height: 180px; /* Fixed height */
+      object-fit: cover; /* Ensure image covers container without distortion */
+      object-position: center; /* Center image */
+      border-radius: 8px; /* Optional: Rounded corners for images */
+      margin-bottom: 10px; /* Space below image */
+  }
+  
+  .proj1 h3 {
+      font-size: 22px;
+      color: #285446;
+      margin: 10px 0;
+  }
+  
+  .proj1 p {
+      font-size: 20px;
+      color: #285446;
+  }
+  
+  .proj1:hover {
+      transform: scale(1.05); /* Slight zoom effect */
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+      background: linear-gradient(to bottom, #ccffcc 0%, #99ccff 100%);
+  }
+  
+  /* Corrected inline styling for explore button */
+  .explore-btn {
+      display: inline-block;  /* Makes it inline, not inline-block */
+      text-align: center;
+      background-color: #285446;
+      color: white;
+      border: none;
+      padding: 10px 20px; /* Horizontal padding adjusted for button */
+      cursor: pointer;
+      border-radius: 0 0 10px 10px;
+      transition: background-color 0.3s;
+      margin-top: 10px; /* Added margin to separate button */
+      white-space: nowrap; /* Prevents the text from wrapping */
+  }
+  
+  .explore-btn:hover {
+      color: black;
+      background-color: blanchedalmond;
+  }
+  
+  
+  
+  /* Responsive Design for medium screens (up to 768px) */
+  @media (max-width: 768px) {
+    .proj-con {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+      
+    }
+    .proj1 {
+      width: calc(50% - 20px); /* Two items per row on medium screens */
+    }
+    .proj .explore-btn{
+      margin-bottom: 5px;
+    }
+  
+    
+  }
+  
+  /* Responsive Design for smaller screens (up to 480px) */
+  @media (max-width: 480px) {
+    .proj1 {
+      width: 100%; /* Full width on small screens */
+      position: relative; /* Ensure the button stays within the container */
+      margin-bottom: 20px; /* Space between project items */
+      padding-bottom: 50px; /* Ensure enough space for the explore button */
+    }
+  
+    .proj1 img {
+      width: 100%; /* Ensure image takes full width of its container */
+      height: auto; /* Maintain aspect ratio */
+      border-radius: 10px; /* Round the corners of the image */
+    }
+  
+    .proj1 h3 {
+      font-size: 18px; /* Adjust heading size */
+      margin-bottom: 10px; /* Add spacing below the title */
+    }
+  
+    .proj1 p {
+      font-size: 16px; /* Adjust paragraph text size */
+      margin-bottom: 15px; /* Space below the description */
+    }
+  
+    .proj1 .explore-btn {
+      font-size: 16px; /* Adjust font size for the button */
+      padding: 10px 20px;
+      position: absolute; /* Fix button positioning */
+      bottom: 10px; /* Position the button slightly above the bottom */
+      left: 50%; /* Center the button horizontally */
+      transform: translateX(-50%); /* Center the button perfectly */
+      background-color: #285446;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+  
+    .proj1 .explore-btn:hover {
+      color: black;
+      background-color: blanchedalmond;
+    }
+  
+    .head-proj {
+      font-size: 20px; /* Adjust heading size for mobile */
+      margin-top: 15px;
+      text-align: center; /* Center the heading */
+    }
+  }
+  
+  /* Modal Styles */
+  .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-content {
+      background-color: #fff;
+      margin: 15% auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 500px;
+  }
+  
+  .close-btn {
+      color: #aaa;
+      font-size: 28px;
+      font-weight: bold;
+      float: right;
+  }
+  
+  .close-btn:hover,
+  .close-btn:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+  }
+  
+  
+  
+  

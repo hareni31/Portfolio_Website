@@ -1,0 +1,364 @@
+body {
+    background-color: #285446;
+    background-image: url("images/bg1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    font-family: 'Crimson Text', Times, Times New Roman, serif;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+/* Header container */
+.head-con {
+    width: 90%;
+    height: 90px;
+    background-color: white;
+    display: flex;
+    margin-top: 20px;
+    margin-left: 40px;
+    color: antiquewhite;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; /* Adds spacing on left and right */
+    border-radius: 20px; /* Rounded corners for the header */
+    box-shadow: 0 4px 10px; /* Optional: Add a shadow for better appearance */
+  }
+  
+  /* Header text */
+  p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+  }
+  
+  /* Navigation styles */
+  .nav-lists ul {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-lists li {
+    padding: 10px 20px;
+    border-radius: 10px; /* Rounded corners for the nav items */
+    background-color: transparent;
+    position: relative;
+    border: 2px solid transparent; /* Transparent border to maintain space */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+  }
+  
+  /* Make sure the list items stay aligned */
+  .nav-lists a {
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    color: black;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adds space between icon and text */
+  }
+  
+  /* Specifically target icons inside the links */
+  .nav-lists a i {
+    color: black; /* Ensures that the icons are black */
+  }
+  
+  /* On hover, make the icon white */
+  .nav-lists a:hover {
+    color: #fff; /* White text on hover */
+  }
+  
+  .nav-lists a:hover i {
+    color: #fff; /* White icon on hover */
+  }
+  
+  /* Hover effect: gradient background and lifting effect */
+  .nav-lists li:hover {
+    border: 2px solid #007BFF; /* Square border on hover */
+    transform: translateY(-5px); /* Lift the item up */
+    background: linear-gradient(45deg, #ff6ec7, #ff9a8b); /* Gradient background on hover */
+  }
+  
+  .nav-lists a:hover {
+    color: #fff; /* White text on hover */
+  }
+  
+   /* Mobile menu button (hamburger icon) */
+.menu-btn {
+  display: none;
+  font-size: 30px;
+  background: transparent;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  z-index: 10; /* Ensure the hamburger is on top */
+}
+
+/* Mobile responsive styles */
+@media screen and (max-width: 768px) {
+  /* Header container adjustments */
+  .head-con {
+      margin-left: 10px;
+      margin-right: 10px;
+  }
+
+  /* Navigation lists */
+  .nav-lists {
+      display: none;
+      width: 100%;
+      position: absolute;
+      top: 90px;
+      background-color: whitesmoke;
+      flex-direction: column;
+      align-items: center;  /* This ensures content is centered horizontally */
+      border-radius: 10px;
+      z-index: 5; /* Ensure the navigation is on top */
+      left: 50%; /* Position from the left side of the screen */
+      transform: translateX(-50%); /* Center the menu horizontally */
+  }
+
+  .nav-lists.active {
+      display: flex;
+  }
+
+  .nav-lists ul {
+      flex-direction: column;
+      width: 100%;
+      padding: 0; /* Remove default padding */
+      margin: 0; /* Remove default margin */
+      list-style-type: none; /* Remove bullet points */
+  }
+
+  .nav-lists li {
+      padding: 15px;
+      width: 100%;
+      text-align: center;
+      border-radius: 10px;
+      background-color: #f4f4f4;
+      margin: 5px 0; /* Add margin between items */
+  }
+
+  .nav-lists a {
+      display: block;
+      color: black;
+      text-decoration: none;
+  }
+
+  .nav-lists a i {
+      font-size: 20px; /* Adjust icon size if needed */
+  }
+
+  /* Ensure icons are visible when the nav links are hovered */
+  .nav-lists a:hover i {
+      color: #fff; /* Change color of icons when hovered */
+  }
+
+  /* Hamburger menu button */
+  .menu-btn {
+      display: block;
+  }
+
+  /* Ensure background image scaling for mobile */
+  body {
+      background-size: cover;
+      background-position: center center;
+  }
+
+  /* Prevent overlapping content */
+  .main-content {
+      z-index: 1; /* Ensure content is below the menu */
+  }
+}
+
+/* Header text */
+.head-cont {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    font-size: 36px;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-transform: uppercase;
+    position: relative;
+    opacity: 0;
+    transform: translateY(-100%);
+    animation: slideDown 1s ease-out forwards;
+}
+
+/* Animation */
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Contact container */
+.cont-con {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 40px;
+  padding: 15px 20px;
+  border-radius: 8px;
+  background: linear-gradient(to bottom, #00ff99 0%, #ff0000 100%); /* Initial gradient */
+  color: #333;
+  text-decoration: none;
+  font-size: 1rem;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, background 0.3s ease; /* Smooth transitions for both background and transform */
+  transform: translateX(-50px); /* Start with the initial transform */
+  animation: slideIn 0.5s forwards; /* Animation to slide in */
+}
+
+/* Hover effect */
+h2:hover {
+  background: #0073e6; /* Change to blue gradient on hover */
+  color: #fff; /* Change text color */
+  transform: scale(1.05); /* Scale the element */
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+  0% {
+      opacity: 0;
+      transform: translateX(-50px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+/* Contact box styling */
+.contact-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    background-color: #f1f1f1;
+    color: #333;
+    text-decoration: none;
+    font-size: 1rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: slideIn 0.5s forwards;
+}
+
+/* Hover effect */
+.contact-box:hover {
+    background-color: #0073e6;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* Icons styling */
+.contact-box i {
+    font-size: 1.2rem;
+}
+
+/* Keyframe animation for slide-in effect */
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Footer styling */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+
+/* Styling for Contact Form */
+.contact-form-container {
+    width: 50%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the start (left) */
+}
+
+.contact-form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.contact-form-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: left; /* Ensure label text aligns left */
+}
+
+.contact-form-container input, .contact-form-container textarea {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contact-form-container .button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center button within the container */
+}
+
+.contact-form-container button {
+    padding: 10px 20px;
+    background-color: #0073e6;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form-container button:hover {
+    background-color: #005bb5;
+}
+
+
+

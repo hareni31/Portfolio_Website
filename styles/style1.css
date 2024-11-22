@@ -1,0 +1,281 @@
+body {
+    background-color: #285446;
+    background-image: url("images/bg1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    font-family: 'Crimson Text', Times, Times New Roman, serif;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+/* Header container */
+.head-con {
+    width: 90%;
+    height: 90px;
+    background-color: white;
+    display: flex;
+    margin-top: 20px;
+    margin-left: 40px;
+    color: antiquewhite;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; /* Adds spacing on left and right */
+    border-radius: 20px; /* Rounded corners for the header */
+    box-shadow: 0 4px 10px; /* Optional: Add a shadow for better appearance */
+  }
+  
+  /* Header text */
+  p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+  }
+  
+  /* Navigation styles */
+  .nav-lists ul {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-lists li {
+    padding: 10px 20px;
+    border-radius: 10px; /* Rounded corners for the nav items */
+    background-color: transparent;
+    position: relative;
+    border: 2px solid transparent; /* Transparent border to maintain space */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+  }
+  
+  /* Make sure the list items stay aligned */
+  .nav-lists a {
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    color: black;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adds space between icon and text */
+  }
+  
+  /* Specifically target icons inside the links */
+  .nav-lists a i {
+    color: black; /* Ensures that the icons are black */
+  }
+  
+  /* On hover, make the icon white */
+  .nav-lists a:hover {
+    color: #fff; /* White text on hover */
+  }
+  
+  .nav-lists a:hover i {
+    color: #fff; /* White icon on hover */
+  }
+  
+  /* Hover effect: gradient background and lifting effect */
+  .nav-lists li:hover {
+    border: 2px solid #007BFF; /* Square border on hover */
+    transform: translateY(-5px); /* Lift the item up */
+    background: linear-gradient(45deg, #ff6ec7, #ff9a8b); /* Gradient background on hover */
+  }
+  
+  .nav-lists a:hover {
+    color: #fff; /* White text on hover */
+  }
+  
+  /* Mobile menu button (hamburger icon) */
+.menu-btn {
+  display: none;
+  font-size: 30px;
+  background: transparent;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  z-index: 10; /* Ensure the hamburger is on top */
+}
+
+/* Mobile responsive styles */
+@media screen and (max-width: 768px) {
+  /* Header container adjustments */
+  .head-con {
+      margin-left: 10px;
+      margin-right: 10px;
+  }
+
+  /* Navigation lists */
+  .nav-lists {
+      display: none;
+      width: 100%;
+      position: absolute;
+      top: 90px;
+      background-color: whitesmoke;
+      flex-direction: column;
+      align-items: center;  /* This ensures content is centered horizontally */
+      border-radius: 10px;
+      z-index: 5; /* Ensure the navigation is on top */
+      left: 50%; /* Position from the left side of the screen */
+      transform: translateX(-50%); /* Center the menu horizontally */
+  }
+
+  .nav-lists.active {
+      display: flex;
+  }
+
+  .nav-lists ul {
+      flex-direction: column;
+      width: 100%;
+      padding: 0; /* Remove default padding */
+      margin: 0; /* Remove default margin */
+      list-style-type: none; /* Remove bullet points */
+  }
+
+  .nav-lists li {
+      padding: 15px;
+      width: 100%;
+      text-align: center;
+      border-radius: 10px;
+      background-color: #f4f4f4;
+      margin: 5px 0; /* Add margin between items */
+  }
+
+  .nav-lists a {
+      display: block;
+      color: black;
+      text-decoration: none;
+  }
+
+  .nav-lists a i {
+      font-size: 20px; /* Adjust icon size if needed */
+  }
+
+  /* Ensure icons are visible when the nav links are hovered */
+  .nav-lists a:hover i {
+      color: #fff; /* Change color of icons when hovered */
+  }
+
+  /* Hamburger menu button */
+  .menu-btn {
+      display: block;
+  }
+
+  /* Ensure background image scaling for mobile */
+  body {
+      background-size: cover;
+      background-position: center center;
+  }
+
+  /* Prevent overlapping content */
+  .main-content {
+      z-index: 1; /* Ensure content is below the menu */
+  }
+}
+
+
+.head-abt {
+    text-align: center;
+    margin-top: 30px; /* Increased margin from top */
+    padding: 20px; /* Added more padding for better spacing */
+    font-size: 36px; /* Increased font size for a more prominent header */
+    color: #fff; /* White text color */
+    border-radius: 10px; /* Rounded corners for the header */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    width: 80%; /* Limiting the header width */
+    margin-left: auto; /* Center align header */
+    margin-right: auto; /* Center align header */
+    text-transform: uppercase; /* Makes the text uppercase for emphasis */
+    position: relative; /* Needed for the transition */
+    opacity: 0; /* Start hidden */
+    transform: translateY(-100%); /* Start position off-screen above */
+    animation: slideDown 1s ease-out forwards; /* Slide-down animation */
+}
+
+/* Keyframes for slide-in effect */
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.abt {
+    margin-top: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column; /* Stack the boxes vertically */
+    gap: 20px; /* Adds space between the boxes */
+    width: 100%; /* Ensures full width for the parent container */
+}
+
+.box1, .box2 {
+    background-color: aliceblue;
+    color: black;
+    font-size: 20px;
+    line-height: 1.5;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    width: 45%; /* Box width */
+    margin-left: 5%; /* Left margin */
+    margin-right: 5%; /* Right margin */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Prevent overflow */
+}
+
+/* Removed zoom effect on hover */
+.box1:hover, .box2:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Add a larger shadow on hover */
+    background-color: #f0f0f0; /* Change background color on hover */
+}
+
+/* Box1 - Left Aligned */
+.box1 {
+    align-self: flex-start; /* Align box1 to the left */
+    animation: slideInLeft 1s ease forwards;
+}
+
+/* Box2 - Right Aligned */
+.box2 {
+    align-self: flex-end; /* Align box2 to the right */
+    animation: slideInRight 1s ease forwards;
+    animation-delay: 0.5s; /* Delay animation for box2 */
+}
+
+.box2 img {
+    width: 100%; /* Image will take 100% of the box width */
+    height: 80%; /* Image will take 80% of the box height */
+    object-fit: cover; /* Ensures the image fits within the box */
+    border-radius: 8px;
+}
+
+/* Slide-in animations */
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+

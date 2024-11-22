@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="styles/style3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="head-con">
+          <p>Hareni Varadharaj</p>
+          <nav class="nav-lists" id="navMenu">
+            <ul>
+              <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+              <li><a href="about.html"><i class="fas fa-user"></i> About</a></li>
+              <li><a href="project.html"><i class="fas fa-project-diagram"></i> Projects</a></li>
+              <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+          </nav>
+          <button class="menu-btn" onclick="toggleMenu()">&#9776;</button>
+        </div>
+      </header>
+
+    <div class="head-cont">Contact</div>
+
+    <div class="cont-con">
+        <h2>Get IN Touch</h2>
+        <a href="mailto:harenivaradharaj324@gmail.com" class="contact-box">
+            <i class="fa-solid fa-envelope"></i> harenivaradharaj324@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/hareni-varadharaj/" target="_blank" class="contact-box">
+            <i class="fa-brands fa-linkedin"></i> LinkedIn Profile
+        </a>
+        <a href="https://github.com/hareni31" target="_blank" class="contact-box">
+            <i class="fa-brands fa-github"></i> GitHub Profile
+        </a>
+    </div>
+
+    <form id="contact-form" class="contact-form-container">
+        
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required placeholder="Your Name">
+    
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required placeholder="Your Email">
+    
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required placeholder="Your Message"></textarea>
+    
+        <div class="button-container">
+            <button type="submit">Send Message</button>
+        </div>
+    </form>
+
+    <footer>
+        <p>&copy; 2024 Hareni Varadharaj.</p>
+    </footer>
+
+    <script>
+        // Initialize EmailJS with your Public Key or User ID
+        emailjs.init('WQ83icQ4ygTaoAlk0');  // Replace with your actual Public Key
+
+        const form = document.getElementById('contact-form');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();  // Prevent default form submission
+
+            // Pass the form element directly to emailjs.sendForm
+            emailjs.sendForm('service_e9oh1yd', 'template_xnprg25', form)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    alert('Message sent successfully!');
+                }, function(error) {
+                    console.error('FAILED...', error);  // Log error for debugging
+                    alert('Failed to send message. Please try again later.');
+                });
+        });
+    </script>
+    <script >function toggleMenu() {
+        const navMenu = document.getElementById("navMenu");
+        navMenu.classList.toggle("active");
+      }
+    </script>
+</body>
+</html>
